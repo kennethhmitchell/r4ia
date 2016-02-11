@@ -2,10 +2,11 @@ class TicketsController < ApplicationController
   before_action :set_project
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
-  def new
-    @ticket = @project.tickets.build
-    authorize @ticket, :create?
-  end
+ def new
+  @ticket = @project.tickets.build
+  authorize @ticket, :create?
+  3.times { @ticket.attachments.build }
+ end
 
   def create
     @ticket = @project.tickets.build(ticket_params)
@@ -52,7 +53,7 @@ class TicketsController < ApplicationController
 
   def ticket_params
     params.require(:ticket).permit(:name, :description,
-       :attachment, :attachment_cache)
+       attachments_attributes: [:file, :file_cache])
   end
 
   def set_project
