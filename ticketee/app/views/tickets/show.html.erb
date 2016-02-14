@@ -32,7 +32,7 @@
     <% if @ticket.state.present? %>
      <tr>
       <th>State:</th>
-      <td><%= render @ticket.state %> ago</td>
+      <td><%= render @ticket.state %></td>
      </tr>
     <% end %>
   </table>
@@ -60,7 +60,7 @@
 <div id="comments">
   <% if @ticket.comments.persisted.any? %>
    <%= render @ticket.comments.persisted %>
-  <$ else %>
+  <% else %>
    <p>There are no comments for this ticket.</p>
   <% end %>
 </div>
