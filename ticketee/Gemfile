@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -9,7 +9,8 @@ gem 'sqlite3', group: [:defelopment, :test]
 gem 'pg', group: :production
 # send logs to std output rather than to a file
 gem 'rails_12factor', group: :production
-
+# use puma for production web server, not WEBrick as in dev
+gem 'puma', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
